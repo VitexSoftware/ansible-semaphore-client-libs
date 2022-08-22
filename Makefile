@@ -20,8 +20,8 @@ php:
 		./openapi-generator-cli generate -i ${deffile} -g php --additional-properties namespace=semaphore -o ${outdir}/libphp-semaphore-client
 
 python:
-		mkdir -p ${outdir}/libpython-semaphore-client
-		./openapi-generator-cli generate -i ${deffile} -g python --additional-properties namespace=semaphore -o ${outdir}/libython-semaphore-client
+		rm -rf ${outdir}/libpython-semaphore-client
+		./openapi-generator-cli generate -i ${deffile} -g python  -t templates/python --config=templates/python/config.yml --additional-properties=debugSupportingFiles,namespace=semaphore,generatedBy=Vitex,packageName=semaphore_client,projectName=semaphore_client, -o ${outdir}/libpython-semaphore-client
 
 ruby:
 		mkdir -p ${outdir}/libruby-semaphore-client
